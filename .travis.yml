@@ -4,5 +4,5 @@ services:
 - docker
 
 script:
-  - docker build -t ${DOCKER_REPO}/${DOCKER_IMAGE} ${DOCKER_BUILDDIR}
+  - docker build -f Dockerfile .
 
