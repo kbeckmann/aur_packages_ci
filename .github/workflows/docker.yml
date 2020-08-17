@@ -3,7 +3,10 @@ name: Builder
 on:
   push:
     branches:
-        - master
+      - master
+  schedule:
+    - cron: "0 0 * * *"
+
 
 jobs:
   docker:
