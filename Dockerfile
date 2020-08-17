@@ -10,6 +10,7 @@ RUN yay --noconfirm -S soapyairspyhf-git
 
 
 # Dependencies have missing dependencies...
-RUN yay --noconfirm -S netcdf proj appcsxcad-git
+# Disabled for now because of broken dependency chain... great.
+# RUN yay --noconfirm -S netcdf proj appcsxcad-git
 
 CMD /bin/bash
