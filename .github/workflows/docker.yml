@@ -21,6 +21,7 @@ jobs:
           docker run --rm archbuilder yay --noconfirm -Syyu airspyhf-git
           docker run --rm archbuilder yay --noconfirm -Syyu soapyairspyhf-git
           docker run --rm archbuilder yay --noconfirm -Syyu netcdf proj appcsxcad-git
+          docker run --rm archbuilder yay --noconfirm -Syyu gds3d-git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
