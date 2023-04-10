@@ -9,7 +9,7 @@ on:
 
 
 jobs:
-  docker:
+  airspyhf-git:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,8 +19,44 @@ jobs:
           docker pull 'docker.pkg.github.com/kbeckmann/archbuilder/archbuilder'
           docker tag docker.pkg.github.com/kbeckmann/archbuilder/archbuilder:latest archbuilder
           docker run --rm archbuilder yay --noconfirm -Syyu airspyhf-git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  soapyairspyhf-git:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: |
+          echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
+          docker pull 'docker.pkg.github.com/kbeckmann/archbuilder/archbuilder'
+          docker tag docker.pkg.github.com/kbeckmann/archbuilder/archbuilder:latest archbuilder
           docker run --rm archbuilder yay --noconfirm -Syyu soapyairspyhf-git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  appcsxcad-git:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: |
+          echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
+          docker pull 'docker.pkg.github.com/kbeckmann/archbuilder/archbuilder'
+          docker tag docker.pkg.github.com/kbeckmann/archbuilder/archbuilder:latest archbuilder
           docker run --rm archbuilder yay --noconfirm -Syyu netcdf proj appcsxcad-git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  gds3d-git:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: |
+          echo ${GITHUB_TOKEN} | docker login -u ${GITHUB_ACTOR} --password-stdin docker.pkg.github.com
+          docker pull 'docker.pkg.github.com/kbeckmann/archbuilder/archbuilder'
+          docker tag docker.pkg.github.com/kbeckmann/archbuilder/archbuilder:latest archbuilder
           docker run --rm archbuilder yay --noconfirm -Syyu gds3d-git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
